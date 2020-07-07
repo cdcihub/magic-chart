@@ -1,0 +1,3 @@
+[submodule "magic-container"]
+	path = magic-container
+	url = git@gitlab.astro.unige.ch:cdci/magic/magic-container.git
