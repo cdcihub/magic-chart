@@ -3,7 +3,7 @@ docker-build:
   image: docker:stable
   stage: build
   before_script:
-    - apk add git openssh make
+    - apk add git openssh make bash
     - git clone --recurse-submodules --remote-submodules https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.astro.unige.ch/cdci/magic/magic-container
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
     - docker info
@@ -18,7 +18,8 @@ deploy:
   image: alpine/helm
   stage: deploy
   script:
-    - helm status
+    - helm list -A
+    - bash make.sh install
   only:
     - staging-1-3
     - ci
