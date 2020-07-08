@@ -19,6 +19,7 @@ docker-build-master:
     - make push -C magic-container
   only:
     - staging-1-3
+    - ci
 
 
 deploy:
