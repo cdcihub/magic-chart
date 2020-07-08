@@ -29,7 +29,7 @@ deploy:
   script:
     - helm list -A
     - export NAMESPACE=$CI_DEFAULT_BRANCH
-    - bash make.sh install
+    - bash make.sh upgrade || bash make.sh install
   only:
     - staging-1-3
     - ci
