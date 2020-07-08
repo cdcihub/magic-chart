@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: magic-config
+  namespace: {{ .Values.environment }}
+data:
+  config.yml: |
+    url: 0.0.0.0
+    port: 8000
+    data_root_path: MAGIC_data/data
+    catalog_file_prefix: magic_
+    catalog_file_type: .yaml
+    source_name_field: 'Targets in file'
+    MW_file_kw: 'File list MWL'
+    MAGIC_file_kw: 'File list MAGIC'
+
