@@ -25,6 +25,7 @@ deploy:
     - apk add git openssh make bash
   script:
     - helm list -A
+    - export NAMESPACE=$CI_DEFAULT_BRANCH
     - bash make.sh install
   only:
     - staging-1-3
