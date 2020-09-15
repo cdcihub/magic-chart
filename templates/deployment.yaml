@@ -60,11 +60,6 @@ spec:
             value: /conf/magic_data_server
           - name: ODA_SPARQL_ROOT
             value: "http://fuseki.internal.odahub.io/dataanalysis"
-          - name: DQUEUE_DATABASE_URL
-            valueFrom:
-              secretKeyRef:
-                name: dqueue-database-url
-                key: url.txt
           volumeMounts:
           - name: magic-config-volume
             mountPath: /conf/magic_data_server/config.yml

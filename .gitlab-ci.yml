@@ -29,7 +29,6 @@ deploy:
   before_script:
     - apk add git openssh make bash
   script:
-    - helm list -A
     - export NAMESPACE=${CI_DEFAULT_BRANCH//./-}
     - git clone https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.astro.unige.ch/cdci/magic/magic-container
     - (cd magic-container; git rev-parse HEAD; git remote -v; ls -l) 
