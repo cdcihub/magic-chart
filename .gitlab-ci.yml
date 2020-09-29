@@ -14,8 +14,8 @@ docker-build-master:
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
     - docker info
   script:
-    - docker build --pull -t "$CI_REGISTRY_IMAGE" magic-container
-    - docker push "$CI_REGISTRY_IMAGE"
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:$(bash make.sh image-tag)" magic-container
+    - docker push "$CI_REGISTRY_IMAGE:$(bash make.sh image-tag)"
     - make push -C magic-container
     - (cd magic-container; git rev-parse HEAD; git remote -v; ls -l) 
   only:
