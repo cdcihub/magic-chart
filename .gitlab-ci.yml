@@ -8,7 +8,6 @@ docker-build-master:
   image: docker:stable
   stage: build
   before_script:
-    - sleep 3600
     - apk add git openssh make
     - git clone https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.astro.unige.ch/cdci/magic/magic-container
     - git clone https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.astro.unige.ch/cdci/magic/magic-backend magic-container/magic-backend
