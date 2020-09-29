@@ -4,12 +4,12 @@ function image-tag() {
 
 function install() {
     set -x
-    helm -n ${NAMESPACE:?} install oda-magic . --set image.tag=$(image-tag)
+    helm -n ${NAMESPACE:?} install oda-magic . --set image.tag=$(image-tag) --wait
 }
 
 function upgrade() {
     set -x
-    helm upgrade -n ${NAMESPACE:?} oda-magic . --set image.tag=$(image-tag)
+    helm upgrade -n ${NAMESPACE:?} oda-magic . --set image.tag=$(image-tag) --wait
 }
 
 $@
